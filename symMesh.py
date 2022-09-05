@@ -45,13 +45,7 @@ class MiSymMesh():
         pm.setParent('..')
 
         # Direction
-        self.side = pm.radioButtonGrp(
-            numberOfRadioButtons=2,
-            label="Check: ",
-            labelArray2=("Left", "Left"),
-            columnAlign=(1, 'left'),
-            # adjustableColumn=True,
-            select=1)
+        self.checkSide = pm.checkBox(label='Check the other side')
 
         pm.separator()
         pm.button("Select middle edge", command=self.createTable)
@@ -108,8 +102,8 @@ class MiSymMesh():
         pointsNotMatching = []
         verts = []
 
-        side = self.side.getSelect()
-        if side == 1:
+        side = self.checkSide.getValue()
+        if side == 0:
             # left
             verts = self.left_vertices
         else:

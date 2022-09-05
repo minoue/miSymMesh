@@ -128,8 +128,15 @@ class MiSymMesh():
                 pointsNotMatching.append(k)
 
         name = self.meshTextField.getText()
-        out = [name + ".vtx[{}]".format(i) for i in pointsNotMatching]
-        pm.select(out, r=True)
+
+        if pointsNotMatching:
+            out = [name + ".vtx[{}]".format(i) for i in pointsNotMatching]
+            pm.select(out, r=True)
+        else:
+            pm.confirmDialog(
+                title='miSymMesh',
+                message='Mesh is symmetrical',
+                button='OK')
 
     def mirrorSelected(self, flip=False, *args):
         # type:(bool) -> None

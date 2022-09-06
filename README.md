@@ -15,7 +15,8 @@ Maya Artisan BrushTool also doesn't support topological symmetry for weight pain
 [symmetryTable](https://github.com/minoue/symmetryTable)
 
 ## Install
-Copy miSymMesh folder to maya script directory.
+1. Build/Install symmetryTable.
+2. Copy miSymMesh folder to maya script directory.
 
 ## How to use
 ```python
